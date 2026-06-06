@@ -1,0 +1,28 @@
+<div class="converter">
+    <h2>Unit Converter</h2>
+    <div class="controls">
+        <label>
+            Value
+            <input type="number" [(ngModel)]="value" />
+        </label>
+        <label>
+            From
+            <select [(ngModel)]="from">
+                <option *ngFor="let u of units" [value]="u">{{ u }}</option>
+            </select>
+        </label>
+        <label>
+            To
+            <select [(ngModel)]="to" (ngModelChange)="convert()">
+                <option value="mg/dL">mg/dL</option>
+            </select>
+        </label>
+    </div>
+    <div class="result">
+        Result: <span class="value">{{ display }}</span> <span class="unit">{{ to }}</span>
+    </div>
+    <div class="actions">
+        <button (click)="convert()">Convert</button>
+        <button type="button" class="clear-button" (click)="clear()">Clear</button>
+    </div>
+</div>
